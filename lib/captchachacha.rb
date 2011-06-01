@@ -10,7 +10,7 @@ module Sinatra
   # @author Iain Barnett
   #
   # an module to take advantage of the http://captchator.com service
-  module Captcha
+  module Captchachacha
   
     def captcha_pass?( session_id, answer )
       with_logging( "captcha_pass? session_id:#{session_id} answer:#{answer}", :log_result_too ) do
@@ -48,6 +48,6 @@ module Sinatra
     
   end # Captcha
   
-  helpers Captcha
+  helpers Captchachacha
   
 end # module
