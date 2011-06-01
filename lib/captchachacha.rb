@@ -3,7 +3,7 @@
 require 'sinatra/base'
 require "ick"
 
-Ick.sugarize unless Object.respond_to? :maybe
+Ick.sugarize
 
 module Sinatra
 
@@ -13,16 +13,14 @@ module Sinatra
   module Captchachacha
   
     def captcha_pass?( session_id, answer )
-      with_logging( "captcha_pass? session_id:#{session_id} answer:#{answer}", :log_result_too ) do
-        sesh = session_id.to_i # here, set session_id to a number or 0
-        ans = answer.maybe.gsub(/\W/, '') # substitute non word chars
-        
-        return if sesh == 0
-        return if ans.nil?
-        
-        does_it_pass = get_uri( sesh, ans )
-        return does_it_pass
-      end
+      sesh = session_id.to_i # here, set session_id to a number or 0
+      ans = answer.maybe.gsub(/\W/, '') # substitute non word chars
+      
+      return if sesh == 0
+      return if ans.nil?
+      
+      does_it_pass = get_uri( sesh, ans )
+      return does_it_pass
     end # def
   
     def captcha_session
