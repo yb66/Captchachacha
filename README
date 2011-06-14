@@ -1,0 +1,22 @@
+## Rack::Captchachacha ##
+
+Rack middleware for using the [captchator.com][1] service.
+
+### Usage ###
+
+#### Sinatra ####
+
+    ## app.rb
+    use Rack::Captchachacha
+    helpers Rack::Recaptcha::Helpers
+
+
+### Acknowledgments ###
+
+The vast majority of this code comes from [sinatra-captcha][1] and [rack-recaptcha][2]
+
+Many thanks to Blake Mizerany, the author of sinatra-captcha, and Arthur Chiu, author of rack-recaptcha for making their code public.
+
+[1]: http://captchator.com/ 
+[1]: https://github.com/bmizerany/sinatra-captcha
+[2]: https://github.com/achiu/rack-recaptcha
