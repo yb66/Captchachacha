@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency('rack-test', '=0.6.0')
   s.add_development_dependency('rspec', '=2.6.0')
   s.email          = "iainspeed @nospam@ gmail.com"
+  s.homepage       = "https://github.com/yb66/Captchachacha"
   s.test_files     = `git ls-files -- {test,spec,features}`.split("\n")
   s.signing_key    = ENV['HOME'] + '/.ssh/gem-private_key.pem'
   s.cert_chain     = [ENV['HOME'] + '/.ssh/gem-public_cert.pem']
