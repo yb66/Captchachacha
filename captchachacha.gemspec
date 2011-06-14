@@ -17,9 +17,6 @@ Gem::Specification.new do |s|
   s.files          = `git ls-files`.split("\n")
   s.add_dependency('rack', '=1.3.0')
   s.add_dependency('curb', '=0.7.15')
-  s.add_development_dependency('webmock', '=1.6.4')
-  s.add_development_dependency('rack-test', '=0.6.0')
-  s.add_development_dependency('rspec', '=2.6.0')
   s.email          = "iainspeed @nospam@ gmail.com"
   s.homepage       = "https://github.com/yb66/Captchachacha"
   s.test_files     = `git ls-files -- {test,spec,features}`.split("\n")
