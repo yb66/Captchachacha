@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-lib = File.expand_path('../lib/', __FILE__)
+lib = File.expand_path('./lib')
 $:.unshift lib unless $:.include?(lib)
 require 'rack/captchachacha/version'
 
@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   EOF
   s.version        = Rack::Captchachacha::VERSION
   s.platform       = Gem::Platform::RUBY
-  s.require_paths  = 'lib'
+  s.require_path   = 'lib'
   s.required_ruby_version    = ">= 1.9.2"
   s.author         = "Iain Barnett"
   s.files          = `git ls-files`.split("\n")
