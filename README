@@ -7,6 +7,7 @@ Rack middleware for using the [captchator.com][1] service.
 #### Sinatra ####
 
     ## app.rb
+    require 'rack/captchachacha'
     use Rack::Captchachacha
     helpers Rack::Recaptcha::Helpers
 
