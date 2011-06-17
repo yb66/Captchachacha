@@ -1,4 +1,6 @@
 *.old
+*.tmproj
+.rvmrc
 .DS_Store
 
 *.gem
