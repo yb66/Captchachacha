@@ -2,6 +2,7 @@
 *.tmproj
 .rvmrc
 .DS_Store
+*.tmproj
 
 *.gem
 
