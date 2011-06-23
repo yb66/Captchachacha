@@ -9,7 +9,9 @@ module Rack
     VERIFY_URL = "http://captchator.com/captcha/check_answer"
     CHALLENGE_FIELD = 'captcha_session'
     RESPONSE_FIELD  = 'captcha_answer'
-    
+    DEFAULT_MESSAGE = "Incorrect response, please try again."
+    RESULT_HEADER   = 'X-Captcha-Valid'
+    RESULT_MESSAGE  = 'X-Captcha-Msg'
     
     # @param app Rack application
     # @param [optional,Hash] options Hash of options
@@ -41,10 +43,11 @@ module Rack
         # If it's a fail then the usual course of action would be to redirect back to the
         # captcha form, but on success to continue, so the error message will be ignored unless
         # of failure.
-        msg ||= "incorrect response, please try again"
+        msg ||= DEFAULT_MESSAGE
         
-        env.merge!('X-Captcha-Valid' => result == true, 'X-Captcha-Msg' => msg )
+        env.merge!(RESULT_HEADER => result == true, RESULT_MESSAGE => msg )
       end
+      
       @app.call(env)
     end
     
