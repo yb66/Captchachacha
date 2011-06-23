@@ -1,3 +1,5 @@
+v0.4.0 Using secure random lib to generate better session id's; using X-... for non standard headers. 
+
 v0.0.3 Rebuild of v0.0.2 but without development dependencies, as one of them was causing errors via a bug with YAML Psyck::Syck
 
 v0.0.2 Working, with tests for rack portion.

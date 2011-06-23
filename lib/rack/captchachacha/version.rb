@@ -1,5 +1,5 @@
 module Rack
   class Captchachacha
-    VERSION = "0.0.3"
+    VERSION = "0.4.0"
   end
 end
