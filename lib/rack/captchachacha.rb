@@ -43,18 +43,18 @@ module Rack
         # of failure.
         msg ||= "incorrect response, please try again"
         
-        env.merge!('captcha.valid' => result == true, 'captcha.msg' => msg )
+        env.merge!('X-Captcha-Valid' => result == true, 'X-Captcha-Msg' => msg )
       end
       @app.call(env)
     end
     
     
     def verify( session_id, answer )
-      return false if session_id == 0
+      return false if session_id == 0 || session_id.nil?
       return false if answer.nil?
     
       require 'curb'
-      Curl::Easy.perform("#{VERIFY_URL}/#{session_id}/#{answer}").body_str.to_i == 1
+      Curl::Easy.perform("#{VERIFY_URL}/#{session_id}/#{answer}").body_str == "1"
     end # def
     
   end # class

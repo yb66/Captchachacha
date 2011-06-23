@@ -3,6 +3,7 @@ require 'rack/test'
 require 'rack/mock'
 require 'curb'
 require 'webmock/rspec'
+require 'securerandom'
 
 require_relative '../lib/rack/captchachacha.rb'
 
@@ -23,7 +24,7 @@ include Rack::Test::Methods
       when '/' then [200,'Hello world']
       when '/login'
         if request.post?
-          env['captcha.valid'] ? [200, 'post login'] : [200, 'post fail']
+          env['X-Captcha-Valid'] ? [200, 'post login'] : [200, 'post fail']
         else
           [200,'login']
         end
@@ -51,7 +52,7 @@ include Rack::Test::Methods
   end # context
   
   context "a page that requires a captcha" do
-    let(:session_id){ rand(1000) }
+    let(:session_id){ SecureRandom.random_number.to_s[2..-1] }
     let(:url_to_request) { "#{Rack::Captchachacha::VERIFY_URL}/#{session_id}/response" }
     
     it "should pass the captcha" do

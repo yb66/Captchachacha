@@ -7,20 +7,20 @@
 module Rack
   class Captchachacha
     module Helpers
-      
+      require 'securerandom'
       
       def captcha_valid?
-        request.env['captcha.valid']
+        request.env['X-Captcha-Valid']
       end # def
 
 
       def captcha_session
-        @captcha_session ||= rand(9000) + 1000
+        @captcha_session ||= SecureRandom.random_number.to_s[2..-1]
       end
 
 
       def captcha_answer_tag
-        %Q!<input id="captcha-answer" name="captcha_answer" type="text" size="10"/>!
+        %Q!<input id="captcha-answer" name="captcha_answer" type="text" size="6"/>!
       end
 
 
