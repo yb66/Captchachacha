@@ -1,6 +1,6 @@
 ## Rack::Captchachacha ##
 
-Rack middleware for using the [captchator.com][1] service.
+Rack middleware for using the captchator.com service http://captchator.com/.
 
 ### Usage ###
 
@@ -11,13 +11,10 @@ Rack middleware for using the [captchator.com][1] service.
     use Rack::Captchachacha
     helpers Rack::Recaptcha::Helpers
 
+There is a longer example on my blog, http://iainbarnett.me.uk/posts/Using-rack-captchachacha/ 
 
 ### Acknowledgments ###
 
-The vast majority of this code comes from [sinatra-captcha][2] and [rack-recaptcha][3]
+The vast majority of this code comes from sinatra-captcha https://github.com/bmizerany/sinatra-captcha and rack-recaptcha https://github.com/achiu/rack-recaptcha
 
 Many thanks to Blake Mizerany, the author of sinatra-captcha, and Arthur Chiu, author of rack-recaptcha for making their code public.
-
-[1]: http://captchator.com/ 
-[2]: https://github.com/bmizerany/sinatra-captcha
-[3]: https://github.com/achiu/rack-recaptcha
