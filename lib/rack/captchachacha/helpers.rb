@@ -20,12 +20,12 @@ module Rack
 
 
       def captcha_answer_tag
-        %Q!<input id="captcha-answer" name="captcha_answer" type="text" size="6"/>!
+        %Q!<input id="captcha_answer" name="captcha_answer" type="text" size="6"/>!
       end
 
 
       def captcha_image_tag
-        %Q!<input name="captcha_session" type="hidden" value="#{captcha_session}"/>\n<img id="captcha-image" src="http://captchator.com/captcha/image/#{captcha_session}"/>!
+        %Q!<input id="captcha_session" name="captcha_session" type="hidden" value="#{captcha_session}"/><img id="captcha_image" src="http://captchator.com/captcha/image/#{captcha_session}"/>!
       end
  
     end # Helpers
