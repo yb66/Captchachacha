@@ -57,7 +57,7 @@ include Rack::Test::Methods
     
     it "should pass the captcha" do
       stub_request(:get, url_to_request).to_return({:body => "1"})
-      post "/login", {'captcha_session' => session_id, 'captcha_answer' => 'response'}
+      post "/login", {'captcha_session' => session_id, 'captcha' => 'response'}
       
       WebMock.should have_requested(:get, url_to_request)
         
@@ -68,7 +68,7 @@ include Rack::Test::Methods
     
     it "should fail the captcha" do
       stub_request(:get, url_to_request).to_return({:body => "0"})
-      post "/login", {'captcha_session' => session_id, 'captcha_answer' => 'response'}
+      post "/login", {'captcha_session' => session_id, 'captcha' => 'response'}
       
       WebMock.should have_requested(:get, url_to_request)
     
