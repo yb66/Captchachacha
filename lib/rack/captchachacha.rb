@@ -8,7 +8,7 @@ module Rack
     
     VERIFY_URL = "http://captchator.com/captcha/check_answer"
     CHALLENGE_FIELD = 'captcha_session'
-    RESPONSE_FIELD  = 'captcha_answer'
+    RESPONSE_FIELD  = 'captcha'
     DEFAULT_MESSAGE = "Incorrect response, please try again."
     RESULT_HEADER   = 'X-Captcha-Valid'
     RESULT_MESSAGE  = 'X-Captcha-Msg'
@@ -30,9 +30,8 @@ module Rack
     # @param env Rack environment
     def _call(env)
       request = Request.new(env)
-      
       if request.params[CHALLENGE_FIELD] && request.params[RESPONSE_FIELD]
-        
+ 
         result, msg = verify(
                         request.params[CHALLENGE_FIELD].to_i, 
                         request.params[RESPONSE_FIELD] )
