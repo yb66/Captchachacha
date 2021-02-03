@@ -2,6 +2,12 @@
 
 Rack middleware for using the captchator.com service http://captchator.com/.
 
+## NOTE! ##
+
+THIS IS NO LONGER MAINTAINED AND THE SERVICE IT CALLED IS NO LONGER UP.
+
+FORK AND/OR USE AT YOUR OWN RISK.
+
 ### Usage ###
 
 #### Sinatra ####
